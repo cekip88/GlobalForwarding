@@ -3,6 +3,7 @@ section
   +w(100%)
 
 .ui
+  padding: 0 100px 100px
   &-title
     margin-top: 100px
     margin-bottom: 60px
@@ -13,20 +14,34 @@ section
     margin-bottom: 40px
     span
       width: 100px
-  &-checksradios,&-fieldsdropdown
+  &-checksradios,&-fieldsdropdown,&-iconsTabs
     display: flex
   &-checkboxes
     width: 250px
   &-checkbox,&-radio
     margin-bottom: 50px
   &-side
-    width: 49%
-  &-field
+    width: 40%
+    &:last-child
+      width: 59%
+  &-field,&-dropdown,&-icon,&-tab
     margin-top: 55px
-    span
+    display: flex
+    align-items: center
+    &>span
       width: 150px
       display: inline-block
       font-family: $f_bold
+  &-icon
+    button
+      margin-right: 55px
+      &.icon-btn-hover
+        svg
+          .st0
+            fill: $blue-l
+  &-quotes
+    padding: 65px 0
+    background-color: $blue-ll
 
 
 .h2
@@ -35,49 +50,43 @@ section
     font-family: $f_bold
     color: $body-font-color
 
-.btn
+.btn,.btn-big
   font-family: $f_semi
   border-radius: 5px
   color: #fff
-
-.btn.big
+  transition: .35s ease
+.btn-big
   padding: 22px 54px 18px
-.btn.small
+.btn
   padding: 16px 49px
 
 .link
   font-family: $f_bold
 
-.btn.orange-light
+.btn-big.orange
   background-color: $orange-l
-.btn.orange-medium
-  background-color: $orange-m
-.btn.orange-dark
-  background-color: $orange-d
-.btn.blue-light
+  &:hover
+    background-color: $orange-m
+  &:active
+    background-color: $orange-d
+.btn.blue
   background-color: $blue-l
-.btn.blue-medium
-  background-color: $blue-m
-.btn.blue-dark
-  background-color: $blue-d
-.btn.gray
+  &:hover
+    background-color: $blue-m
+  &:active
+    background-color: $blue-d
+.btn-big[disabled='true'],.btn[disabled='true']
   background-color: $gray
+.link[disabled='true'],.btn-big[disabled='true'],.btn[disabled='true']
   opacity: .5
-.link.orange-light
-  color: $orange-l
-.link.orange-medium
-  color: $orange-m
-.link.orange-dark
-  color: $orange-d
+.link[disabled='true']
+  color: $gray
 .link.blue-light
   color: $blue-l
-.link.blue-medium
-  color: $blue-m
-.link.blue-dark
-  color: $blue-d
-.link.gray
-  color: $gray
-  opacity: .5
+  &:hover
+    color: $blue-m
+  &:active
+    color: $blue-d
 
 .checkbox,.radio
   font-family: $f_bold
@@ -86,6 +95,8 @@ section
   &-label
     display: flex
     align-items: center
+    &:hover
+      cursor: pointer
   &-img
     +wh(25px)
     +dfc
@@ -102,9 +113,13 @@ section
         img
           visibility: visible
           opacity: 1
+
 .checkbox
   &-img
     border-radius: 3px
+    img
+      opacity: 0
+      visibility: hidden
 
 .radio
   &-img
@@ -117,16 +132,131 @@ section
       border-radius: 100%
 
 .input
-  &-text
-    +w(170px)
-    font-family: $f_bold
-    padding: 15px 12px
-    background-color: $checkbox-bgc
-    border: 2px solid transparent
-    border-radius: 5px
-    &-active
-      border-color: $checkbox-border
-    &-error
+  &-error
+    &-text
+      +font(12px,$f_semi,$red)
+      display: none
+      margin-top: 3px
+    .input-text
       border-color: $red
-    &-disabled
-      background-color: $disabled
+    .input-error-text
+      display: block
+  &-text
+    &:focus
+      border-color: #8eabd1
+
+.input,.dropdown
+  display: inline-block
+
+.input-text,.dropdown-head
+  border: 2px solid transparent
+  border-radius: 5px
+
+.input-text,.dropdown-head,.dropdown-body-value
+  +w(170px)
+  background-color: $checkbox-bgc
+  padding: 15px 12px
+  font-family: $f_bold
+
+.input-disabled .input-text,.dropdown-disabled .dropdown-head
+  background-color: $disabled
+  color: $gray
+
+.dropdown
+  position: relative
+  &-head,&-body-value
+    text-align: left
+  &-body
+    border-radius: 5px
+    position: absolute
+    z-index: 1
+    top: 54px
+    max-height: 0
+    overflow: auto
+    transition: .35s ease
+    &-value
+      &:hover
+        background-color: $dropdown-body-value-hover
+  &-active
+    .dropdown-body
+      max-height: 188px
+    .dropdown-head
+      border-color: $checkbox-border
+  &-disabled
+    .dropdown-head
+      &:hover
+        cursor: auto
+  &
+    ::-webkit-scrollbar
+      width: 5px
+      height: 5px
+
+    ::-webkit-scrollbar-track-piece
+      border-radius: 3px
+      background-color: transparent
+
+    ::-webkit-scrollbar-thumb
+      height: 50px
+      background-color: $scroll
+      border-radius: 3px
+
+.icon
+  &-btn
+    width: 26px
+    svg
+      .st0
+        fill: #9FADBC
+      .st1,.st0
+        stroke: transparent
+    &:hover
+      svg
+        .st0
+          fill: $blue-l
+
+.tab
+  &-controll
+    +wh(570px,81px)
+    display: flex
+    justify-content: space-between
+    border: 2px solid $checkbox-bgc
+    border-radius: 5px
+    .tab-btn
+      +wh(110px,81px)
+      margin-top: -2px
+      border: 2px solid transparent
+      border-radius: 5px
+      svg
+        max-width: 57px
+        max-height: 33px
+        .st0,.st1
+          stroke: $gray
+        .st1
+          opacity: .5
+      span
+        +font(12px,$f_semi,$gray)
+        display: block
+        text-align: center
+      &:first-child
+        margin-left: -2px
+      &:last-child
+        margin-right: -2px
+      &:hover
+        svg
+          .st0
+            stroke: $body-font-color
+          .st1
+            stroke: $red
+        span
+          color: $body-font-color
+      &-active,&-active:hover
+        background-color: $blue-l
+        svg
+          .st0
+            stroke: $white
+          .st1
+            opacity: 1
+            stroke: #4e9dce
+        span
+          color: $white
+
+

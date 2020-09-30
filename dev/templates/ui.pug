@@ -4,112 +4,153 @@ append vars
     page_title= 'Ui kit'
 block content
     .ui
-        section
-            h2.ui-title.h2-title Buttons
-            ul.ui-buttons
-                li.ui-button
-                    span Active
-                    button.btn.big.orange-light Get quote
-                    button.btn.small.blue-light Submit
-                    button.link.blue-light Add new item
-                li.ui-button
-                    span Hover
-                    button.btn.big.orange-medium Get quote
-                    button.btn.small.blue-medium Submit
-                    button.link.blue-medium Add new item
-                li.ui-button
-                    span Click
-                    button.btn.big.orange-dark Get quote
-                    button.btn.small.blue-dark Submit
-                    button.link.blue-dark Add new item
-                li.ui-button
-                    span Disabled
-                    button.btn.big.gray(disabled='true') Get quote
-                    button.btn.small.gray(disabled='true') Submit
-                    button.link.gray(disabled='true') Add new item
-            h2.ui-title.h2-title Checkboxes & Radiobuttons
-            .ui-checksradios
-                ul.ui-checkboxes
-                    li.ui-checkbox.checkbox
-                        input(type='checkbox').checkbox-input#check1
-                        label(for='check1').checkbox-label
-                            .checkbox-img
-                                +img('../../img/checkbox-img.png')
-                            span.checkbox-text Default
-                    li.ui-checkbox.checkbox
-                        input(type='checkbox' checked='true').checkbox-input#check2
-                        label(for='check2').checkbox-label
-                            .checkbox-img
-                                +img('../../img/checkbox-img.png')
-                            span.checkbox-text Checked
-                    li.ui-checkbox.checkbox
-                        input(type='checkbox' disabled='true').radio-input#check3
-                        label(for='check3').radio-label
-                            .checkbox-img
-                                +img('../../img/checkbox-img.png')
-                            span.checkbox-text Disabled
-                ul.ui-radios
-                    li.ui-radio.radio
-                        input(type='radio' name='radio').radio-input#radio1
-                        label(for='radio1').radio-label
-                            .radio-img
-                            span.radio-text Default
-                    li.ui-radio.radio
-                        input(type='radio' name='radio' checked='true').radio-input#radio2
-                        label(for='radio2').radio-label
-                            .radio-img
-                            span.radio-text Checked
-                    li.ui-radio.radio
-                        input(type='radio' name='radio' disabled='true').radio-input#radio3
-                        label(for='radio3').radio-label
-                            .radio-img
-                            span.radio-text Disabled
-            .ui-fieldsdropdown
-                .ui-side
-                    h2.ui-title.h2-title Fields
-                    ul.ui-fields
-                        li.ui-field
-                            span Normal
+        h2.ui-title.h2-title Buttons
+        ul.ui-buttons
+            li.ui-button
+                span Active
+                button.btn-big.orange Get quote
+                button.btn.blue Submit
+                button.link.blue-light Add new item
+            li.ui-button
+                span Disabled
+                button.btn-big(disabled='true') Get quote
+                button.btn(disabled='true') Submit
+                button.link.gray(disabled='true') Add new item
+        h2.ui-title.h2-title Checkboxes & Radiobuttons
+        .ui-checksradios
+            ul.ui-checkboxes
+                li.ui-checkbox.checkbox
+                    input(type='checkbox').checkbox-input#check1
+                    label(for='check1').checkbox-label
+                        .checkbox-img
+                            +img('../../img/checkbox-img.png')
+                        span.checkbox-text Default
+                li.ui-checkbox.checkbox
+                    input(type='checkbox' checked='true').checkbox-input#check2
+                    label(for='check2').checkbox-label
+                        .checkbox-img
+                            +img('../../img/checkbox-img.png')
+                        span.checkbox-text Checked
+                li.ui-checkbox.checkbox
+                    input(type='checkbox' disabled='true').radio-input#check3
+                    label(for='check3').radio-label
+                        .checkbox-img
+                            +img('../../img/checkbox-img.png')
+                        span.checkbox-text Disabled
+            ul.ui-radios
+                li.ui-radio.radio
+                    input(type='radio' name='radio').radio-input#radio1
+                    label(for='radio1').radio-label
+                        .radio-img
+                        span.radio-text Default
+                li.ui-radio.radio
+                    input(type='radio' name='radio' checked='true').radio-input#radio2
+                    label(for='radio2').radio-label
+                        .radio-img
+                        span.radio-text Checked
+                li.ui-radio.radio
+                    input(type='radio' name='radio' disabled='true').radio-input#radio3
+                    label(for='radio3').radio-label
+                        .radio-img
+                        span.radio-text Disabled
+        .ui-fieldsdropdown
+            .ui-side
+                h2.ui-title.h2-title Fields
+                ul.ui-fields
+                    li.ui-field
+                        span Normal
+                        .input
                             input(type='text').input-text
-                        li.ui-field
-                            span Active
-                            input(type='text' value='Active').input-text.input-text-active
-                        li.ui-field
-                            span Error
-                            input(type='text' value='44as').input-text.input-text-error
-                        li.ui-field
-                            span Disabled
-                            input(type='text' disabled).input-text.input-text-disabled
-                .ui-side
-                    h2.ui-title.h2-title Dropdown
-                    ul.ui-dropdowns
-                        li.ui-dropdown
-                            span Normal
-                            .ui-dropdown-item
-                                .ui-dropdown-item-head
-                                    span.ui-dropdown-head-value 55
-                                .ui-dropdown-item-body
-                                    button.ui-dropdown-value 50
-                                    button.ui-dropdown-value 55
-                                    button.ui-dropdown-value 70
-                                    button.ui-dropdown-value 77.5
-                        li.ui-dropdown
-                            span Normal
-                            .ui-dropdown-item.active
-                                .ui-dropdown-item-head
-                                    span.ui-dropdown-head-value 55
-                                .ui-dropdown-item-body
-                                    button.ui-dropdown-value 50
-                                    button.ui-dropdown-value 55
-                                    button.ui-dropdown-value 70
-                                    button.ui-dropdown-value 77.5
-                        li.ui-dropdown
-                            span Normal
-                            .ui-dropdown-item(disabled='true')
-                                .ui-dropdown-item-head
-                                    span.ui-dropdown-head-value 55
-                                .ui-dropdown-item-body
-                                    button.ui-dropdown-value 50
-                                    button.ui-dropdown-value 55
-                                    button.ui-dropdown-value 70
-                                    button.ui-dropdown-value 77.5
+                            span.input-error-text This field is required
+                    li.ui-field
+                        span Error
+                        .input.input-error
+                            input(type='text' value='44as').input-text
+                            span.input-error-text This field is required
+                    li.ui-field
+                        span Disabled
+                        .input.input-disabled
+                            input(type='text' disabled).input-text
+                            span.input-error-text This field is required
+            .ui-side
+                h2.ui-title.h2-title Dropdown
+                ul.ui-dropdowns
+                    li.ui-dropdown
+                        span Normal
+                        .dropdown
+                            button.dropdown-head(data-click-target='dropdown-head')
+                                span.dropdown-head-value 00
+                            input(type='hidden').dropdown-input
+                            .dropdown-body
+                                button.dropdown-body-value(data-click-target='dropdown-value') 50
+                                button.dropdown-body-value(data-click-target='dropdown-value') 55
+                                button.dropdown-body-value(data-click-target='dropdown-value') 70
+                                button.dropdown-body-value(data-click-target='dropdown-value') 77.5
+                                button.dropdown-body-value(data-click-target='dropdown-value') 80
+                                button.dropdown-body-value(data-click-target='dropdown-value') 90
+                    li.ui-dropdown
+                        span Disabled
+                        .dropdown.dropdown-disabled(disabled='true' data-click-target='dropdown-head')
+                            button.dropdown-head
+                                span.dropdown-head-value 55
+                            input(type='hidden').dropdown-input
+                            .dropdown-body
+                                button.dropdown-body-value(data-click-target='dropdown-value') 50
+                                button.dropdown-body-value(data-click-target='dropdown-value') 55
+                                button.dropdown-body-value(data-click-target='dropdown-value') 70
+                                button.dropdown-body-value(data-click-target='dropdown-value') 77.5
+        .ui-iconsTabs
+            .ui-side
+                h2.ui-title.h2-title Icons
+                ul.ui-icons
+                    li.ui-icon
+                        span Active
+                        button.icon-btn
+                            include ../img/i.svg
+                        button.icon-btn
+                            include ../img/xo.svg
+                        button.icon-btn
+                            include ../img/x.svg
+            .ui-side
+                h2.ui-title.h2-title Tabs
+                ul.ui-tabs
+                    li.ui-tab
+                        span Active
+                    li.ui-tab
+                        .tab
+                            .tab-controll
+                                button(data-click-target='tab-btn').tab-btn.tab-btn-active
+                                    include ../img/track.svg
+                                    span LTL
+                                button(data-click-target='tab-btn').tab-btn
+                                    include ../img/track-big.svg
+                                    span FTL
+                                button(data-click-target='tab-btn').tab-btn
+                                    include ../img/gift.svg
+                                    span Small Parcel
+                                button(data-click-target='tab-btn').tab-btn
+                                    include ../img/boxes.svg
+                                    span LCL
+                                button(data-click-target='tab-btn').tab-btn
+                                    include ../img/crane.svg
+                                    span FCL
+
+        .ui-quotes
+            h2.ui-title.h2-title Main scree tabs and fields
+            .tab
+                .tab-controll
+                    button(data-click-target='tab-btn').tab-btn.tab-btn-active
+                        include ../img/track.svg
+                        span LTL
+                    button(data-click-target='tab-btn').tab-btn
+                        include ../img/track-big.svg
+                        span FTL
+                    button(data-click-target='tab-btn').tab-btn
+                        include ../img/gift.svg
+                        span Small Parcel
+                    button(data-click-target='tab-btn').tab-btn
+                        include ../img/boxes.svg
+                        span LCL
+                    button(data-click-target='tab-btn').tab-btn
+                        include ../img/crane.svg
+                        span FCL
