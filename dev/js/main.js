@@ -1,3 +1,6 @@
+
+
+
 let body = document.querySelector('body');
 body.addEventListener('click',function (e) {
     let target = e.target;
@@ -5,7 +8,7 @@ body.addEventListener('click',function (e) {
     while(!(target.hasAttribute('data-click-target')) && target.tagName !== "BODY"){
         target = target.parentElement;
     }
-    if((target.getAttribute('data-click-target') === 'dropdown-head') && !target.hasAttribute('disabled')){
+    if((target.getAttribute('data-click-target') === 'dropdown-head') && !target.parentElement.classList.contains('dropdown-disabled')){
         e.preventDefault();
         dropdownClose();
         dropdownOpen(target)
@@ -18,7 +21,6 @@ body.addEventListener('click',function (e) {
     }
 
     if((target.getAttribute('data-click-target') === 'tab-btn') && !target.classList.contains('tab-btn-active')){
-        e.preventDefault();
         tabClick(target)
     }
 });
@@ -31,8 +33,11 @@ function dropdownOpen(target) {
 function dropdownInsert(target) {
     let inpt = target.parentElement.previousElementSibling;
     inpt.value = target.textContent;
-    let head = inpt.previousElementSibling.children[0];
+    let head = inpt.previousElementSibling;
+    head = head.children[head.children.length - 1];
     head.textContent = inpt.value;
+    let parent = head.parentElement;
+    if (!parent.classList.contains('dropdown-choosen'))parent.classList.add('dropdown-choosen')
 }
 function dropdownCloseThis(target) {
     target.parentElement.parentElement.classList.remove('dropdown-active')

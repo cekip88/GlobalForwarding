@@ -1,3 +1,171 @@
 $unit: 'px'
-section
-  +w($desktop#{$unit})
+@media screen and (min-width: 930px)
+
+  section
+    +w($desktop#{$unit})
+    margin: 0 auto
+    padding: 0
+
+  .ui
+    &-title
+      margin-top: 100px
+      margin-bottom: 60px
+    &-button
+      flex-direction: row
+      button
+        margin-top: 0
+    &-checksradios,&-fieldsdropdown,&-iconsTabs
+      display: flex
+    &-side
+      width: 40%
+      &:last-child
+        width: 59%
+    &-field,&-dropdown,&-icon,&-tab
+      margin-top: 55px
+      &>span
+        width: 150px
+    &-checkbox,&-radio
+      margin-bottom: 50px
+    &-icon
+      button
+        margin-right: 55px
+
+  .h2
+    &-title
+      font-size: 40px
+
+  .btn,.btn-big
+    transition: .35s ease
+  .btn-big
+    padding: 22px 54px 18px
+  .btn
+    padding: 16px 49px
+  .link
+    strong
+      font-size: 24px
+  .btn-big.orange
+    &:hover
+      background-color: $orange-m
+  .btn.blue
+    &:hover
+      background-color: $blue-m
+  .link.blue-light
+    &:hover
+      color: $blue-m
+
+  .checkbox,.radio
+    &-img
+      +wh(25px)
+      margin-right: 16px
+      img
+        width: auto
+      &,&:before,img
+        transition: .35s ease
+
+  .radio
+    &-img
+      &:before
+        +wh(9px)
+
+  .input
+    &-text
+      padding: 15px 12px
+    &-row
+      &-img
+        .input-text
+          padding-left: 37px
+    svg
+      width: 18px
+      left: 12px
+
+  .dropdown-head,.dropdown-body-value
+    padding: 15px 16px
+
+  .dropdown
+    &-head
+      svg
+        width: 18px
+    &-body
+      top: 54px
+      &-value
+        &:hover
+          background-color: $dropdown-body-value-hover
+    &-active
+      .dropdown-body
+        max-height: 188px
+
+  .icon
+    &-btn
+      width: 26px
+      flex: 0 0 26px
+      svg
+        .st0
+          transition: .35s ease
+      &:hover
+        svg
+          .st0
+            fill: $blue-l
+
+  .tab
+    &-controll
+      width: 570px
+    &-btn
+      svg
+        width: 57px
+      &:hover
+        cursor: pointer
+        svg
+          .st0
+            stroke: $body-font-color
+          .st1
+            stroke: $red
+        .tab-btn-text
+          color: $body-font-color
+      &-active:hover
+        background-color: $blue-l
+        border-radius: 5px
+        svg
+          .st0
+            stroke: $white
+          .st1
+            opacity: 1
+            stroke: #4e9dce
+        .tab-btn-text
+          color: $white
+
+  .quotes
+    margin-top: 100px
+    padding: 65px 0 260px
+    .h2-title
+      margin-bottom: 80px
+    .tab
+      &-block
+        flex-direction: row
+        &-item
+          width: 235px
+          &:after
+            +wh(2px,52px)
+            display: block
+            content: ''
+            background-color: $disabled
+            opacity: .5
+    .dropdown
+      &-body
+        &-value
+          &:hover
+            background-color: $dropdown-body-value-hover
+      &-head,&-body-value
+        padding: 15px 21px
+      &-active
+        .dropdown-body
+          top: 65px
+
+    .input
+      &-row
+        input
+          padding-left: 46px
+        svg
+          left: 21px
+
+    .input,.dropdown
+      margin-bottom: 0

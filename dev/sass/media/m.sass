@@ -1,52 +1,44 @@
 $unit: 'px'
 section
   +w(100%)
+  padding: 0 10px
 
 .ui
-  padding: 0 100px 100px
   &-title
-    margin-top: 100px
-    margin-bottom: 60px
+    margin-top: 50px
+    margin-bottom: 30px
   &-button
     display: flex
     align-items: center
     justify-content: space-between
+    flex-direction: column
     margin-bottom: 40px
+    button
+      margin-top: 20px
     span
       width: 100px
-  &-checksradios,&-fieldsdropdown,&-iconsTabs
-    display: flex
   &-checkboxes
     width: 250px
   &-checkbox,&-radio
-    margin-bottom: 50px
-  &-side
-    width: 40%
-    &:last-child
-      width: 59%
+    margin-bottom: 20px
   &-field,&-dropdown,&-icon,&-tab
-    margin-top: 55px
+    margin-top: 20px
     display: flex
     align-items: center
     &>span
-      width: 150px
-      display: inline-block
+      width: 70px
       font-family: $f_bold
   &-icon
     button
-      margin-right: 55px
+      margin-right: 20px
       &.icon-btn-hover
         svg
           .st0
             fill: $blue-l
-  &-quotes
-    padding: 65px 0
-    background-color: $blue-ll
-
 
 .h2
   &-title
-    font-size: 40px
+    font-size: 32px
     font-family: $f_bold
     color: $body-font-color
 
@@ -54,25 +46,24 @@ section
   font-family: $f_semi
   border-radius: 5px
   color: #fff
-  transition: .35s ease
 .btn-big
-  padding: 22px 54px 18px
+  padding: 11px 27px 9px
 .btn
-  padding: 16px 49px
-
+  padding: 8px 24px
 .link
   font-family: $f_bold
+  display: flex
+  align-items: center
+  strong
+    font-size: 20px
+    margin-right: 5px
 
 .btn-big.orange
   background-color: $orange-l
-  &:hover
-    background-color: $orange-m
   &:active
     background-color: $orange-d
 .btn.blue
   background-color: $blue-l
-  &:hover
-    background-color: $blue-m
   &:active
     background-color: $blue-d
 .btn-big[disabled='true'],.btn[disabled='true']
@@ -83,8 +74,6 @@ section
   color: $gray
 .link.blue-light
   color: $blue-l
-  &:hover
-    color: $blue-m
   &:active
     color: $blue-d
 
@@ -98,12 +87,10 @@ section
     &:hover
       cursor: pointer
   &-img
-    +wh(25px)
+    +wh(18px)
     +dfc
     background-color: $checkbox-bgc
-    margin-right: 16px
-    &,&:before,img
-      transition: .35s ease
+    margin-right: 8px
   &-input:checked~label
     .radio,.checkbox
       &-img
@@ -113,11 +100,15 @@ section
         img
           visibility: visible
           opacity: 1
+  &-disabled
+    span
+      color: $disabled
 
 .checkbox
   &-img
     border-radius: 3px
     img
+      width: 10px
       opacity: 0
       visibility: hidden
 
@@ -125,7 +116,7 @@ section
   &-img
     border-radius: 100%
     &:before
-      +wh(9px)
+      +wh(6px)
       display: block
       content: ''
       background-color: transparent
@@ -142,21 +133,35 @@ section
     .input-error-text
       display: block
   &-text
+    width: 100%
+    padding: 7px 6px
     &:focus
       border-color: #8eabd1
-
-.input,.dropdown
-  display: inline-block
+  &-row
+    display: flex
+    align-items: center
+    position: relative
+    &-img
+      .input-text
+        padding-left: 21px
+    svg
+      width: 13px
+      position: absolute
+      left: 6px
 
 .input-text,.dropdown-head
   border: 2px solid transparent
   border-radius: 5px
 
-.input-text,.dropdown-head,.dropdown-body-value
+.input,.dropdown
   +w(170px)
+.input-text,.dropdown-head,.dropdown-body-value
   background-color: $checkbox-bgc
-  padding: 15px 12px
   font-family: $f_bold
+
+.dropdown-head,.dropdown-body-value
+  width: 100%
+  padding: 7px 8px
 
 .input-disabled .input-text,.dropdown-disabled .dropdown-head
   background-color: $disabled
@@ -164,99 +169,236 @@ section
 
 .dropdown
   position: relative
+  &-head
+    display: flex
+    align-items: center
+    svg
+      width: 13px
+      margin-right: 7px
+      .st0
+        stroke: $tab-svg
+    span
+      margin-right: auto
+    &:after
+      +wh(5px)
+      display: block
+      content: ''
+      border: 2px solid transparent
+      border-top-color: $body-font-color
+      border-right-color: $body-font-color
+      transition: .35s ease
+      transform: rotate(-45deg) translateY(4px)
   &-head,&-body-value
     text-align: left
+    color: $tab-svg
+  &-choosen
+    color: $body-font-color
   &-body
     border-radius: 5px
     position: absolute
     z-index: 1
-    top: 54px
+    top: 38px
     max-height: 0
     overflow: auto
     transition: .35s ease
-    &-value
-      &:hover
-        background-color: $dropdown-body-value-hover
   &-active
     .dropdown-body
-      max-height: 188px
+      max-height: 155px
     .dropdown-head
       border-color: $checkbox-border
+      &:after
+        transform: rotate(135deg) translateY(1px) translateX(-3px)
   &-disabled
     .dropdown-head
       &:hover
         cursor: auto
-  &
-    ::-webkit-scrollbar
-      width: 5px
-      height: 5px
-
-    ::-webkit-scrollbar-track-piece
-      border-radius: 3px
-      background-color: transparent
-
-    ::-webkit-scrollbar-thumb
-      height: 50px
-      background-color: $scroll
-      border-radius: 3px
+      &:after
+        border-top-color: $gray
+        border-right-color: $gray
+  ::-webkit-scrollbar
+    width: 5px
+    height: 5px
+  ::-webkit-scrollbar-track-piece
+    border-radius: 3px
+    background-color: transparent
+  ::-webkit-scrollbar-thumb
+    height: 50px
+    background-color: $scroll
+    border-radius: 3px
 
 .icon
   &-btn
-    width: 26px
+    width: 18px
+    flex: 0 0 18px
     svg
       .st0
         fill: #9FADBC
       .st1,.st0
         stroke: transparent
-    &:hover
-      svg
-        .st0
-          fill: $blue-l
 
 .tab
+  &>input
+    display: none
   &-controll
-    +wh(570px,81px)
-    display: flex
-    justify-content: space-between
+    +wh(300px,81px)
     border: 2px solid $checkbox-bgc
     border-radius: 5px
-    .tab-btn
-      +wh(110px,81px)
-      margin-top: -2px
-      border: 2px solid transparent
+    display: flex
+  &-btn
+    width: calc(20% + .8px)
+    height: 81px
+    margin-top: -2px
+    div
+      +wh(100%)
+      +dfc
+      flex-direction: column
+    svg
+      width: 40px
+      .st0,.st1
+        stroke: $tab-svg
+      .st1
+        opacity: .5
+    &-text
+      +font(12px,$f_semi,$gray)
+      display: block
+      text-align: center
+    &:first-child
+      margin-left: -2px
+    &-active
+      background-color: $blue-l
       border-radius: 5px
       svg
-        max-width: 57px
-        max-height: 33px
-        .st0,.st1
-          stroke: $gray
+        .st0
+          stroke: $white
         .st1
-          opacity: .5
-      span
-        +font(12px,$f_semi,$gray)
-        display: block
-        text-align: center
+          opacity: 1
+          stroke: #4e9dce
+      .tab-btn-text
+        color: $white
+
+.quotes
+  margin-top: 50px
+  padding: 30px 0 200px
+  background-color: $blue-ll
+  .h2-title
+    margin-top: 0
+    margin-bottom: 40px
+    color: $white
+  .tab
+    &-controll
+      width: 100%
+      border: none
+      border-radius: 0
+    &-btn
+      width: 20%
+      margin-top: 0
+      background-color: $checkbox-bgc
+      overflow: hidden
+      div
+        background-color: $blue-ll
       &:first-child
-        margin-left: -2px
-      &:last-child
-        margin-right: -2px
+        margin-left: 0
+      svg
+        .st0
+          stroke: #94c1de
+        .st1
+          stroke: #509ecf
+      &-text
+        color: #94c1de
       &:hover
+        svg
+          .st0,.st1
+            stroke: $white
+        .tab-btn-text
+          color: $white
+      &-active,&-active:hover
+        border-bottom-left-radius: 0
+        border-bottom-right-radius: 0
+        div
+          background-color: $checkbox-bgc
         svg
           .st0
             stroke: $body-font-color
           .st1
             stroke: $red
-        span
+        .tab-btn-text
           color: $body-font-color
-      &-active,&-active:hover
-        background-color: $blue-l
-        svg
-          .st0
-            stroke: $white
-          .st1
-            opacity: 1
-            stroke: #4e9dce
-        span
-          color: $white
+    &-block
+      display: flex
+      flex-direction: column
+      align-items: center
+      padding: 24px 0
+      background-color: $checkbox-bgc
+      border-radius: 5px
+      &-item
+        width: 90%
+        display: flex
+        align-items: center
+      &:nth-child(3)
+        &:after
+          content: none
+  .dropdown
+    width: 100%
+    margin-bottom: 10px
+    &-head
+      border: none
+    &-head,&-body-value
+      padding: 7px 11px
+    &-active
+      .dropdown-body
+        top: 33px
+        &-value
+          background-color: $white
+  .input
+    width: 100%
+    margin-bottom: 15px
+    &-row
+      input
+        padding-left: 28px
+        &:focus
+          border-color: transparent
+      svg
+        left: 10px
+        .st0
+          stroke: $tab-svg
+  .btn-big
+    width: 204px
 
-
+#del-1:checked
+  ~.tab-controll
+    .tab-btn:nth-child(2)
+      div
+        border-bottom-left-radius: 5px
+  ~.tab-block
+    border-top-left-radius: 0
+#del-2:checked
+  ~.tab-controll
+    .tab-btn:first-child
+      div
+        border-bottom-right-radius: 5px
+    .tab-btn:nth-child(3)
+      div
+        border-bottom-left-radius: 5px
+#del-3:checked
+  ~.tab-controll
+    .tab-btn:nth-child(2)
+      div
+        border-bottom-right-radius: 5px
+    .tab-btn:nth-child(4)
+      div
+        border-bottom-left-radius: 5px
+#del-4:checked
+  ~.tab-controll
+    .tab-btn:nth-child(3)
+      div
+        border-bottom-right-radius: 5px
+    .tab-btn:nth-child(5)
+      div
+        border-bottom-left-radius: 5px
+#del-5:checked
+  ~.tab-controll
+    .tab-btn:nth-child(4)
+      div
+        border-bottom-right-radius: 5px
+  ~.tab-block
+    border-top-right-radius: 0
