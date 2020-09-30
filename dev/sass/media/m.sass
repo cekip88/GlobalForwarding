@@ -1,0 +1,132 @@
+$unit: 'px'
+section
+  +w(100%)
+
+.ui
+  &-title
+    margin-top: 100px
+    margin-bottom: 60px
+  &-button
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-bottom: 40px
+    span
+      width: 100px
+  &-checksradios,&-fieldsdropdown
+    display: flex
+  &-checkboxes
+    width: 250px
+  &-checkbox,&-radio
+    margin-bottom: 50px
+  &-side
+    width: 49%
+  &-field
+    margin-top: 55px
+    span
+      width: 150px
+      display: inline-block
+      font-family: $f_bold
+
+
+.h2
+  &-title
+    font-size: 40px
+    font-family: $f_bold
+    color: $body-font-color
+
+.btn
+  font-family: $f_semi
+  border-radius: 5px
+  color: #fff
+
+.btn.big
+  padding: 22px 54px 18px
+.btn.small
+  padding: 16px 49px
+
+.link
+  font-family: $f_bold
+
+.btn.orange-light
+  background-color: $orange-l
+.btn.orange-medium
+  background-color: $orange-m
+.btn.orange-dark
+  background-color: $orange-d
+.btn.blue-light
+  background-color: $blue-l
+.btn.blue-medium
+  background-color: $blue-m
+.btn.blue-dark
+  background-color: $blue-d
+.btn.gray
+  background-color: $gray
+  opacity: .5
+.link.orange-light
+  color: $orange-l
+.link.orange-medium
+  color: $orange-m
+.link.orange-dark
+  color: $orange-d
+.link.blue-light
+  color: $blue-l
+.link.blue-medium
+  color: $blue-m
+.link.blue-dark
+  color: $blue-d
+.link.gray
+  color: $gray
+  opacity: .5
+
+.checkbox,.radio
+  font-family: $f_bold
+  &-input
+    display: none
+  &-label
+    display: flex
+    align-items: center
+  &-img
+    +wh(25px)
+    +dfc
+    background-color: $checkbox-bgc
+    margin-right: 16px
+    &,&:before,img
+      transition: .35s ease
+  &-input:checked~label
+    .radio,.checkbox
+      &-img
+        background-color: $blue-l
+        &:before
+          background-color: #ffffff
+        img
+          visibility: visible
+          opacity: 1
+.checkbox
+  &-img
+    border-radius: 3px
+
+.radio
+  &-img
+    border-radius: 100%
+    &:before
+      +wh(9px)
+      display: block
+      content: ''
+      background-color: transparent
+      border-radius: 100%
+
+.input
+  &-text
+    +w(170px)
+    font-family: $f_bold
+    padding: 15px 12px
+    background-color: $checkbox-bgc
+    border: 2px solid transparent
+    border-radius: 5px
+    &-active
+      border-color: $checkbox-border
+    &-error
+      border-color: $red
+    &-disabled
+      background-color: $disabled
