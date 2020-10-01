@@ -1,0 +1,235 @@
+extends template/main
+append vars
+    -
+        page_title= 'Form'
+block content
+    main
+        .form
+            h2.h2-title Fill out the form to get instant quotes
+            section
+                form
+                    .tab
+                        input(type='radio' name='post' checked='true')#pos-1
+                        input(type='radio' name='post')#pos-2
+                        input(type='radio' name='post')#pos-3
+                        input(type='radio' name='post')#pos-4
+                        input(type='radio' name='post')#pos-5
+                        .tab-controll
+                            label(for='pos-1' data-click-target='tab-btn').tab-btn.tab-btn-active
+                                div
+                                    include ../img/track.svg
+                                    span.tab-btn-text LTL
+                            label(for='pos-2' data-click-target='tab-btn').tab-btn
+                                div
+                                    include ../img/track-big.svg
+                                    span.tab-btn-text FTL
+                            label(for='pos-3' data-click-target='tab-btn').tab-btn
+                                div
+                                    include ../img/gift.svg
+                                    span.tab-btn-text Small Parcel
+                            label(for='pos-4' data-click-target='tab-btn').tab-btn
+                                div
+                                    include ../img/boxes.svg
+                                    span.tab-btn-text LCL
+                            label(for='pos-5' data-click-target='tab-btn').tab-btn
+                                div
+                                    include ../img/crane.svg
+                                    span.tab-btn-text FCL
+                    .form-row
+                        .form-half
+                            h3.form-half-title Ship from
+                            .input
+                                span.input-title Zip Code #[strong *]
+                                .input-row
+                                    input(type='text').input-text
+                                    button(type='button').input-zip.btn.blue Zip locator
+                                span.input-error-text This field is required
+                            .dropdown
+                                span.dropdown-title Pick up From
+                                button.dropdown-head(data-click-target='dropdown-head')
+                                    span.dropdown-head-value Select
+                                input(type='hidden').dropdown-input
+                                .dropdown-body
+                                    button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                    button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                    button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                    button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                    button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                    button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                    button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                        .form-half
+                            h3.form-half-title Ship to
+                            .input
+                                span.input-title Zip Code #[strong *]
+                                .input-row
+                                    input(type='text').input-text
+                                    button(type='button').input-zip.btn.blue Zip locator
+                                span.input-error-text This field is required
+                            .dropdown
+                                span.dropdown-title Dropoff At
+                                button.dropdown-head(data-click-target='dropdown-head')
+                                    span.dropdown-head-value Select
+                                input(type='hidden').dropdown-input
+                                .dropdown-body
+                                    button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                    button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                    button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                    button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                    button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                    button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                    button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                    div
+                        span.input-title.checkbox-title Extra Services:
+                        .form-row
+                            .checkbox
+                                input(type='checkbox').checkbox-input#extra-1
+                                label(for='extra-1').checkbox-label
+                                    .checkbox-img
+                                        +img('../img/checkbox-img.png')
+                                    span.checkbox-text Inside Delivery
+                            .checkbox
+                                input(type='checkbox' checked='true').checkbox-input#extra-2
+                                label(for='extra-2').checkbox-label
+                                    .checkbox-img
+                                        +img('../img/checkbox-img.png')
+                                    span.checkbox-text Notify
+            section
+                h3.form-half-title Items to be shipped
+                .form-row
+                    .form-half
+                        .form-row
+                            .form-half-mobile
+                                .input
+                                    span.input-title Quantity #[strong *]
+                                    .input-row
+                                        input(type='text').input-text
+                                    span.input-error-text This field is required
+                            .form-half-mobile
+                                .dropdown
+                                    span.dropdown-title Freight class #[strong *]
+                                    button.dropdown-head(data-click-target='dropdown-head')
+                                        span.dropdown-head-value Select
+                                    input(type='hidden').dropdown-input
+                                    .dropdown-body
+                                        button.dropdown-body-value(data-click-target='dropdown-value') 00
+                                        button.dropdown-body-value(data-click-target='dropdown-value') 01
+                                        button.dropdown-body-value(data-click-target='dropdown-value') 02
+                                        button.dropdown-body-value(data-click-target='dropdown-value') 03
+                                        button.dropdown-body-value(data-click-target='dropdown-value') 04
+                        .form-row
+                            .form-half-mobile
+                                .input
+                                    span.input-title Weight/item #[strong *]
+                                    .input-row
+                                        input(type='text').input-text
+                                    span.input-error-text This field is required
+                            .form-half-mobile
+                                .input
+                                    span.input-title Length #[strong *]
+                                    .input-row
+                                        input(type='text').input-text
+                                    span.input-error-text This field is required
+                    .form-half
+                        .dropdown
+                            span.dropdown-title Dropoff At #[strong *]
+                            button.dropdown-head(data-click-target='dropdown-head')
+                                span.dropdown-head-value Select
+                            input(type='hidden').dropdown-input
+                            .dropdown-body
+                                button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                        .form-row
+                            .form-half-mobile
+                                .input
+                                    span.input-title Height #[strong *]
+                                    .input-row
+                                        input(type='text').input-text
+                                    span.input-error-text This field is required
+                            .form-half-mobile
+                                .input
+                                    span.input-title Width #[strong *]
+                                    .input-row
+                                        input(type='text').input-text
+                                    span.input-error-text This field is required
+                    .form-half
+                        .form-row
+                            .form-half-mobile
+                                .input
+                                    span.input-title Quantity #[strong *]
+                                    .input-row
+                                        input(type='text').input-text
+                                    span.input-error-text This field is required
+                            .form-half-mobile
+                                .dropdown
+                                    span.dropdown-title Freight class #[strong *]
+                                    button.dropdown-head(data-click-target='dropdown-head')
+                                        span.dropdown-head-value Select
+                                    input(type='hidden').dropdown-input
+                                    .dropdown-body
+                                        button.dropdown-body-value(data-click-target='dropdown-value') 00
+                                        button.dropdown-body-value(data-click-target='dropdown-value') 01
+                                        button.dropdown-body-value(data-click-target='dropdown-value') 02
+                                        button.dropdown-body-value(data-click-target='dropdown-value') 03
+                                        button.dropdown-body-value(data-click-target='dropdown-value') 04
+                        .form-row
+                            .form-half-mobile
+                                .input
+                                    span.input-title Weight/item #[strong *]
+                                    .input-row
+                                        input(type='text').input-text
+                                    span.input-error-text This field is required
+                            .form-half-mobile
+                                .input
+                                    span.input-title Length #[strong *]
+                                    .input-row
+                                        input(type='text').input-text
+                                    span.input-error-text This field is required
+                    .form-half
+                        .dropdown
+                            span.dropdown-title Dropoff At #[strong *]
+                            button.dropdown-head(data-click-target='dropdown-head')
+                                span.dropdown-head-value Select
+                            input(type='hidden').dropdown-input
+                            .dropdown-body
+                                button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                                button.dropdown-body-value(data-click-target='dropdown-value') Business pickup
+                        .form-row
+                            .form-half-mobile
+                                .input.input-error
+                                    span.input-title Height #[strong *]
+                                    .input-row
+                                        input(type='text').input-text
+                                    span.input-error-text This field is required
+                            .form-half-mobile
+                                .input
+                                    span.input-title Width #[strong *]
+                                    .input-row
+                                        input(type='text').input-text
+                                    span.input-error-text This field is required
+                .form-row.form-last
+                    .checkbox
+                        input(type='checkbox').checkbox-input#freight
+                        label(for='freight').checkbox-label
+                            .checkbox-img
+                                +img('../img/checkbox-img.png')
+                            span.checkbox-text Your freight is hazardous
+                    button.link.blue-light #[strong +] Add new item
+            section
+                .form-row.form-last
+                    .checkbox
+                        input(type='checkbox').checkbox-input#conditions
+                        label(for='conditions').checkbox-label
+                            .checkbox-img
+                                +img('../img/checkbox-img.png')
+                            span.checkbox-text I agree to the terms and conditions
+                    button.btn.blue Submit

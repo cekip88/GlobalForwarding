@@ -23,6 +23,13 @@ body.addEventListener('click',function (e) {
     if((target.getAttribute('data-click-target') === 'tab-btn') && !target.classList.contains('tab-btn-active')){
         tabClick(target)
     }
+
+    if(target.getAttribute('data-click-target') === 'loader-close'){
+        closeLoader(target);
+    }
+    if(target.getAttribute('data-click-target') === 'showLoader'){
+        showLoader();
+    }
 });
 
 function dropdownOpen(target) {
@@ -58,5 +65,14 @@ function tabClick(target) {
     target.classList.add('tab-btn-active')
 }
 
-
+function showLoader() {
+    let loader = document.querySelector('.loader-bgc');
+    loader.classList.add('loader-active')
+}
+function closeLoader(target) {
+    while(!target.classList.contains('loader-bgc')){
+        target = target.parentElement;
+    }
+    target.classList.remove('loader-active')
+}
 

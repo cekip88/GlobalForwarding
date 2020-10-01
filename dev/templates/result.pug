@@ -93,3 +93,12 @@ block content
                             span $157.25
                         .result-btn
                             button.btn.blue Book now
+        .loader-bgc.loader-active
+            .loader-inner
+                h2.h2-title Searching
+                span.subtitle Please wait while we are looking for the best offers for you!
+                span.loader-procent 55%
+                .loader-progress
+                    +img('../img/arrow.png')
+                button.loader-close(data-click-target='loader-close')
+                    +img('../img/close.png')
