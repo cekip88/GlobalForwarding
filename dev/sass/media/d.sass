@@ -3,13 +3,16 @@ $unit: 'px'
 
   section
     +w($desktop#{$unit})
-    margin: 0 auto
-    padding: 0
+
+  .h2-title
+    font-size: 40px
+    margin-bottom: 32px
+    text-align: center
 
   .ui
     &-title
-      margin-top: 100px
-      margin-bottom: 60px
+      margin: 100px 0 60px
+      text-align: left
     &-button
       flex-direction: row
       button
@@ -29,26 +32,33 @@ $unit: 'px'
     &-icon
       button
         margin-right: 55px
+    &-quotes
+      margin-top: 100px
+      padding-bottom: 260px
 
-  .h2
-    &-title
-      font-size: 40px
-
-  .btn,.btn-big
+  .btn,.btn-big,.btn-mini
     transition: .35s ease
   .btn-big
     padding: 22px 54px 18px
   .btn
     padding: 16px 49px
+  .btn-mini
+    padding: 9px 18px
   .link
     strong
       font-size: 24px
-  .btn-big.orange
+  .btn-mini.border
     &:hover
-      background-color: $orange-m
-  .btn.blue
-    &:hover
-      background-color: $blue-m
+      color: $blue-ll
+      border-color: $blue-ll
+  .btn-big,.btn,.btn-mini
+    &.orange
+      &:hover
+        background-color: $orange-m
+  .btn,.btn-big,.btn-mini
+    &.blue
+      &:hover
+        background-color: $blue-m
   .link.blue-light
     &:hover
       color: $blue-m
@@ -56,6 +66,7 @@ $unit: 'px'
   .checkbox,.radio
     &-img
       +wh(25px)
+      flex: 0 0 25px
       margin-right: 16px
       img
         width: auto
@@ -77,6 +88,9 @@ $unit: 'px'
     svg
       width: 18px
       left: 12px
+    &-error
+      &-text
+        margin-top: 3px
 
   .dropdown-head,.dropdown-body-value
     padding: 15px 16px
@@ -86,13 +100,13 @@ $unit: 'px'
       svg
         width: 18px
     &-body
-      top: 54px
       &-value
         &:hover
           background-color: $dropdown-body-value-hover
     &-active
       .dropdown-body
-        max-height: 188px
+        height: 188px
+        bottom: -191px
 
   .icon
     &-btn
@@ -134,8 +148,13 @@ $unit: 'px'
           color: $white
 
   .quotes
-    margin-top: 100px
-    padding: 65px 0 260px
+    padding: 65px 0
+    &-title
+      font-size: 50px
+    &-subtitle
+      width: 590px
+      margin: 0 auto 27px
+      line-height: 25px
     .h2-title
       margin-bottom: 80px
     .tab
@@ -156,9 +175,6 @@ $unit: 'px'
             background-color: $dropdown-body-value-hover
       &-head,&-body-value
         padding: 15px 21px
-      &-active
-        .dropdown-body
-          top: 65px
 
     .input
       &-row
@@ -169,3 +185,169 @@ $unit: 'px'
 
     .input,.dropdown
       margin-bottom: 0
+
+  .head
+    &-row
+      padding: 15px 0 28px
+      flex-wrap: wrap
+      align-items: flex-end
+    &-burger
+      display: none
+    &-logo
+      width: 290px
+      margin-left: 0
+    &-desktop
+      display: flex
+    &-conts
+      align-items: flex-end
+      margin-bottom: 5px
+      a
+        margin-bottom: 0
+    &-sign
+      margin-right: 30px
+      transition: .35s ease
+      &:hover
+        color: $blue-ll
+        transform: scale(1.2)
+    &-sign,&-phone
+      line-height: 18px
+      transition: .35s ease
+    &-phone
+      svg
+        width: 15px
+      &:hover
+        transform: scaleX(1.2)
+    &-mobile
+      display: none
+      &-hidden
+        display: flex
+        align-items: center
+        justify-content: space-between
+        position: static
+        opacity: 1
+        height: auto
+        margin-top: 5px
+        padding: 20px 0 0
+    &-nav
+      display: flex
+      align-items: center
+      a
+        font-family: $f_semi
+        color: $gray
+        margin-right: 35px
+        margin-bottom: 0
+        position: relative
+        &:after
+          +wh(100%,2px)
+          content: ''
+          display: block
+          position: absolute
+          bottom: -5px
+          transition: .35s ease
+        &:hover
+          &:after
+            background-color: $body-font-color
+    &-btns
+      button
+        &:first-child
+          margin-right: 20px
+
+  .form
+    section
+      width: 770px
+      &:nth-child(n)
+        padding: 30px 100px
+      &:nth-child(2)
+        padding: 60px 100px 30px
+      &:last-child
+        padding: 30px 100px 60px
+    &-half
+      width: calc(50% - 15px)
+      &-title
+        font-size: 25px
+        margin-bottom: 21px
+    .input
+      &-zip
+        flex: 0 0 100px
+        padding: 15px 0
+    .checkbox
+      margin-right: 55px
+      max-width: initial
+      &:last-child
+        margin-right: auto
+    &-last
+      padding-top: 35px
+
+  .result
+    padding-top: 60px
+    &-subtitle
+      &-row
+        display: flex
+        align-items: center
+        justify-content: center
+        padding: 0
+        margin-bottom: 43px
+      &-item
+        svg
+          width: 18px
+        &:first-child,&:nth-child(2)
+          &:after
+            content: ''
+            display: block
+            margin: 0 25px
+        &:first-child
+          &:after
+            +wh(5px)
+            border-top: 2px solid $gray
+            border-right: 2px solid $gray
+            transform: rotate(45deg)
+        &:nth-child(2)
+          &:after
+            +wh(2px,13px)
+            background-color: $gray
+    &-item
+      display: flex
+      align-items: center
+      justify-content: space-between
+      padding: 0
+      position: relative
+      &>div
+        margin-bottom: 0
+    &-name,&-time,&-btn
+      text-align: left!important
+    &-logo,&-time
+      flex: 0 0 16%
+    &-logo
+      img
+        max-width: calc(100% - 40px)
+    &-name
+      flex: 0 0 28%
+      padding-right: 5px
+    &-price
+      flex: 0 0 120px
+      padding-right: 5px
+    &-dashed
+      +wh(3%,130px)
+      flex: 0 0 3%
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      align-items: center
+      div
+        +wh(2px,6px)
+        background-color: $checkbox-bgc
+      &:before,&:after
+        +wh(100%,30px)
+        max-width: 30px
+        border-radius: 100%
+        content: ''
+        display: block
+        background-color: $checkbox-bgc
+        position: absolute
+      &:before
+        top: -15px
+      &:after
+        bottom: -15px
+    &-btn
+      flex: 0 0 22%
+

@@ -1,4 +1,8 @@
 $unit: 'px'
+
+body
+  background-color: $checkbox-bgc
+
 section
   +w(100%)
   padding: 0 10px
@@ -28,6 +32,9 @@ section
     &>span
       width: 70px
       font-family: $f_bold
+  &-field
+    .input
+      width: 170px
   &-icon
     button
       margin-right: 20px
@@ -35,6 +42,9 @@ section
         svg
           .st0
             fill: $blue-l
+  &-quotes
+    margin-top: 50px
+    padding-bottom: 200px
 
 .h2
   &-title
@@ -44,12 +54,16 @@ section
 
 .btn,.btn-big
   font-family: $f_semi
+.btn-mini,.btn,.btn-big
   border-radius: 5px
   color: #fff
+  border: 2px solid transparent
 .btn-big
-  padding: 11px 27px 9px
+  padding: 9px 25px 7px
 .btn
-  padding: 8px 24px
+  padding: 7px 22px
+.btn-mini
+  padding: 3px 22px
 .link
   font-family: $f_bold
   display: flex
@@ -58,11 +72,19 @@ section
     font-size: 20px
     margin-right: 5px
 
-.btn-big.orange
-  background-color: $orange-l
+
+
+.btn-mini.border
+  border: 2px solid #5cc0ff
+  color: #5cc0ff
   &:active
-    background-color: $orange-d
-.btn.blue
+    background-color: $checkbox-bgc
+.btn-big,.btn,.btn-mini
+  &.orange
+    background-color: $orange-l
+    &:active
+      background-color: $orange-d
+.btn.blue,.btn-big.blue
   background-color: $blue-l
   &:active
     background-color: $blue-d
@@ -89,6 +111,7 @@ section
   &-img
     +wh(18px)
     +dfc
+    flex: 0 0 18px
     background-color: $checkbox-bgc
     margin-right: 8px
   &-input:checked~label
@@ -127,7 +150,7 @@ section
     &-text
       +font(12px,$f_semi,$red)
       display: none
-      margin-top: 3px
+      position: absolute
     .input-text
       border-color: $red
     .input-error-text
@@ -135,6 +158,8 @@ section
   &-text
     width: 100%
     padding: 7px 6px
+    &::placeholder
+      color: $tab-svg
     &:focus
       border-color: #8eabd1
   &-row
@@ -143,18 +168,32 @@ section
     position: relative
     &-img
       .input-text
-        padding-left: 21px
+        padding-left: 28px
     svg
       width: 13px
       position: absolute
-      left: 6px
+      left: 9px
+  &-zip
+    width: 200px
+    margin-left: -5px
+
 
 .input-text,.dropdown-head
   border: 2px solid transparent
   border-radius: 5px
 
 .input,.dropdown
-  +w(170px)
+  min-width: 170px
+  &-title
+    +font(12px,$f_semi,$tab-svg)
+    display: block
+    margin-top: 10px
+    margin-bottom: 10px
+    strong
+      color: $red
+  svg
+    .st0
+      stroke: $tab-svg
 .input-text,.dropdown-head,.dropdown-body-value
   background-color: $checkbox-bgc
   font-family: $f_bold
@@ -175,8 +214,6 @@ section
     svg
       width: 13px
       margin-right: 7px
-      .st0
-        stroke: $tab-svg
     span
       margin-right: auto
     &:after
@@ -187,7 +224,7 @@ section
       border-top-color: $body-font-color
       border-right-color: $body-font-color
       transition: .35s ease
-      transform: rotate(-45deg) translateY(4px)
+      transform: rotate(135deg) translateY(1px) translateX(-3px)
   &-head,&-body-value
     text-align: left
     color: $tab-svg
@@ -197,17 +234,18 @@ section
     border-radius: 5px
     position: absolute
     z-index: 1
-    top: 38px
-    max-height: 0
+    bottom: 0
+    height: 0
     overflow: auto
     transition: .35s ease
   &-active
     .dropdown-body
-      max-height: 155px
+      height: 155px
+      bottom: -157px
     .dropdown-head
       border-color: $checkbox-border
       &:after
-        transform: rotate(135deg) translateY(1px) translateX(-3px)
+        transform: rotate(-45deg) translateY(4px)
   &-disabled
     .dropdown-head
       &:hover
@@ -240,7 +278,7 @@ section
   &>input
     display: none
   &-controll
-    +wh(300px,81px)
+    +wh(100%,81px)
     border: 2px solid $checkbox-bgc
     border-radius: 5px
     display: flex
@@ -248,6 +286,8 @@ section
     width: calc(20% + .8px)
     height: 81px
     margin-top: -2px
+    &:hover
+      cursor: pointer
     div
       +wh(100%)
       +dfc
@@ -277,9 +317,19 @@ section
         color: $white
 
 .quotes
-  margin-top: 50px
-  padding: 30px 0 200px
+  padding: 30px 0
   background-color: $blue-ll
+  &-title
+    font-size: 32px
+    margin-bottom: 8px
+  &-subtitle,&-title
+    width: 100%
+    text-align: center
+    color: $white
+  &-subtitle
+    opacity: .5
+    display: block
+    margin-bottom: 27px
   .h2-title
     margin-top: 0
     margin-bottom: 40px
@@ -346,7 +396,6 @@ section
       padding: 7px 11px
     &-active
       .dropdown-body
-        top: 33px
         &-value
           background-color: $white
   .input
@@ -402,3 +451,150 @@ section
         border-bottom-right-radius: 5px
   ~.tab-block
     border-top-right-radius: 0
+
+.head
+  background-color: $white
+  section
+    padding: 0
+  .st0,.st1
+    stroke: none
+  &-row
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 10px 0
+    position: relative
+  &-logo
+    width: 200px
+    margin-left: 10px
+    .st0
+      fill: $blue-l
+    .st1
+      fill: $red
+  &-burger
+    position: relative
+    margin-right: 10px
+    &:before
+      top: 0
+    &:before,&:after
+      content: ''
+      position: absolute
+    &:before,span,&:after
+      +wh(25px,3px)
+      display: block
+      background-color: $blue-l
+      transition: .35s ease
+    span
+      margin: 6px 0 3px
+  &-desktop
+    display: none
+  &-mobile
+    &-hidden
+      +wh(100%,0)
+      overflow: hidden
+      opacity: 0
+      padding: 0 10px
+      position: absolute
+      top: 49px
+      background-color: $white
+      border-top: 1px solid $gray
+      transition: .35s ease
+  &-sign
+    font-size: 12px
+    color: #5cc0ff
+  &-phone
+    svg
+      width: 13px
+      .st1,.st0
+        fill: $checkbox-border
+    span
+      color: $checkbox-border
+  &-nav a, &-sign, &-phone
+    display: block
+    margin-bottom: 10px
+#head-1
+  display: none
+  &:checked
+    ~.head-row .head-mobile-hidden
+      opacity: 1
+      height: 226px
+      padding: 10px 10px 20px
+    ~.head-row .head-burger
+      span
+        opacity: 0
+        visibility: hidden
+      &:after,&:before
+        top: 6px
+      &:before
+        transform: rotate(45deg)
+      &:after
+        transform: rotate(-45deg)
+
+.form
+  padding: 50px 0 0
+  .h2-title
+    padding: 0 10px
+    margin-bottom: 40px
+  section
+    padding: 20px 10px
+    background-color: $white
+    margin-bottom: 2px
+    &:last-child
+      padding-bottom: 40px
+  &-row
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-items: center
+  &-half
+    width: 100%
+    &-mobile
+      width: calc(50% - 15px)
+    &-title
+      +font(22px,$f_bold)
+    .form-half-title
+      margin-top: 26px
+  .input,.dropdown
+    min-width: 100%
+  .checkbox
+    max-width: calc(50% - 15px)
+    margin-right: auto
+  &-last
+    padding-top: 20px
+
+.result
+  padding: 30px 10px
+  &-subtitle
+    &-row
+      padding: 0 30px
+    &-item
+      margin-top: 10px
+      display: flex
+      align-items: center
+      span
+        font-family: $f_bold
+      svg
+        width: 13px
+        margin-right: 7px
+        .st0,.st1
+          stroke: $tab-svg
+  &-item
+    background-color: $white
+    padding: 20px 0
+    margin-top: 20px
+    &:nth-child(2n + 1)
+      background-color: rgba($white,.7)
+    &>div
+      margin-bottom: 15px
+      text-align: center
+  &-name,&-time
+    &-main
+      font-family: $f_bold
+      display: block
+    &-sub
+      +font(12px,$f_semi,$tab-svg)
+  &-name
+    &-sub
+      color: $red
+  &-price
+    +font(24px,$f_semi)

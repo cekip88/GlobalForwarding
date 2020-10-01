@@ -1,0 +1,95 @@
+extends template/main
+append vars
+    -
+        page_title= 'Result'
+block content
+    main
+        .result
+            h2.h2-title Search results
+            section
+                .result-subtitle-row
+                    .result-subtitle-item
+                        include ../img/address.svg
+                        span USA, FL, Miami
+                    .result-subtitle-item
+                        include ../img/address-marker.svg
+                        span USA, FL, Orlando
+                    .result-subtitle-item
+                        include ../img/weight.svg
+                        span 120 kg
+                ul.result-list
+                    li.result-item
+                        .result-logo
+                            +img('../img/logo1.png')
+                        .result-name
+                            h5.result-name-main Ground Drop Off
+                            span.result-name-sub Drop Off Service
+                        .result-time
+                            span.result-time-main 3 to 7
+                            span.result-time-sub business days delivery
+                        .result-info
+                            button.icon-btn
+                                include ../img/i.svg
+                        .result-dashed
+                            div
+                            div
+                            div
+                            div
+                            div
+                            div
+                            div
+                            div
+                        .result-price
+                            span $149.89
+                        .result-btn
+                            button.btn.blue Book now
+                    li.result-item
+                        .result-logo
+                            +img('../img/logo2.png')
+                        .result-name
+                            h5.result-name-main UPS Standard
+                            span.result-name-sub Pickup Service
+                        .result-time
+                            span.result-time-main 1
+                            span.result-time-sub day delivery
+                        .result-info
+                            button.icon-btn
+                                include ../img/i.svg
+                        .result-dashed
+                            div
+                            div
+                            div
+                            div
+                            div
+                            div
+                            div
+                            div
+                        .result-price
+                            span $152.90
+                        .result-btn
+                            button.btn.blue Book now
+                    li.result-item
+                        .result-logo
+                            +img('../img/logo3.png')
+                        .result-name
+                            h5.result-name-main DHL Express Worldwide Drop Off
+                            span.result-name-sub Drop Off Service
+                        .result-time
+                            span.result-time-main 2 to 4
+                            span.result-time-sub business days delivery
+                        .result-info
+                            button.icon-btn
+                                include ../img/i.svg
+                        .result-dashed
+                            div
+                            div
+                            div
+                            div
+                            div
+                            div
+                            div
+                            div
+                        .result-price
+                            span $157.25
+                        .result-btn
+                            button.btn.blue Book now

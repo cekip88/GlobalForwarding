@@ -17,6 +17,7 @@ body
 input,button
 	font-family: $f_reg
 	font-size: inherit
+	box-sizing: border-box
 
 input
 	background-color: transparent
@@ -25,9 +26,9 @@ input
 $unit: 'px'
 @import "media/m"
 //+mq($mobile-large#{$unit})
-//	@import "media/ml"
+@import "media/ml"
 //+mq($tablet#{$unit})
-//@import "media/t"
+@import "media/t"
 //+mq($tablet-large#{$unit})
 //	@import "media/tl"
 //+mq($desktop#{$unit})

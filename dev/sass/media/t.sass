@@ -1,4 +1,6 @@
 $unit: 'px'
-section
-  +w($tablet#{$unit})
-  margin: auto
+@media screen and (min-width: 768px)
+  section
+    width: 748px
+    margin: 0 auto
+    padding: 0

@@ -1,2 +1,27 @@
 header.head
-	section
+    section
+        input(type='checkbox')#head-1
+        .head-row
+            a(href='#').head-logo
+                include ../../img/logo.svg
+            label(for='head-1').head-burger
+                span
+            .head-conts.head-desktop
+                a(href='#').head-sign Sign In
+                a(href='tel:8772870804').head-phone
+                    include ../../img/phone.svg
+                    span 877-287-0804
+            .head-mobile-hidden
+                .head-conts.head-mobile
+                    a(href='#').head-sign Sign in
+                    a(href='tel:8772870804').head-phone
+                        include ../../img/phone.svg
+                        span 877-287-0804
+                nav.head-nav
+                    a(href='#') About Us
+                    a(href='#') Services
+                    a(href='#') Contact Us
+                    a(href='#') Agent Program
+                .head-btns
+                    button.btn-mini.border Quick quote
+                    button.btn-mini.orange Get Started
