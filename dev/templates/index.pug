@@ -38,9 +38,9 @@ block content
                     .tab-block
                         .tab-block-item
                             .dropdown
-                                button.dropdown-head(data-click-target='dropdown-head')
+                                .dropdown-head(data-click-target='dropdown-head')
                                     include ../img/address.svg
-                                    span.dropdown-head-value Select city or zip
+                                    input(type='text' placeholder='Select city or zip')
                                 input(type='hidden').dropdown-input
                                 .dropdown-body
                                     button.dropdown-body-value(data-click-target='dropdown-value') Ukraine, Kiev
@@ -52,11 +52,12 @@ block content
                                     button.dropdown-body-value(data-click-target='dropdown-value') USA, Texas
                                     button.dropdown-body-value(data-click-target='dropdown-value') Canada, Toronto
                                     button.dropdown-body-value(data-click-target='dropdown-value') USA, New York
+                                span.dropdown-error-text Choose value of list
                         .tab-block-item
                             .dropdown
-                                button.dropdown-head(data-click-target='dropdown-head')
+                                .dropdown-head(data-click-target='dropdown-head')
                                     include ../img/address-marker.svg
-                                    span.dropdown-head-value Select city or zip
+                                    input(type='text' placeholder='Select city or zip')
                                 input(type='hidden').dropdown-input
                                 .dropdown-body
                                     button.dropdown-body-value(data-click-target='dropdown-value') Ukraine, Odessa
@@ -67,6 +68,7 @@ block content
                                     button.dropdown-body-value(data-click-target='dropdown-value') USA, Texas
                                     button.dropdown-body-value(data-click-target='dropdown-value') Canada, Toronto
                                     button.dropdown-body-value(data-click-target='dropdown-value') USA, New York
+                                span.dropdown-error-text Choose value of list
                         .tab-block-item
                             .input
                                 .input-row.input-row-img
