@@ -32,17 +32,38 @@ body.addEventListener('click',function (e) {
     }
 });
 
+let dropdownCashe = [];
+document.querySelectorAll('.dropdown-head input').forEach(function (el) {
+    el.addEventListener('input',function (e) {
+        let list = e.target.parentElement.parentElement.querySelector('.dropdown-body');
+        list.innerHTML = '';
+        dropdownCashe.forEach(function (el) {
+            if(el.textContent.search(e.target.value) > -1){
+                list.append(el);
+            }
+        });
+    });
+});
+
+
 function dropdownOpen(target) {
     let dropdown = target.parentElement;
     if (!dropdown.classList.contains('dropdown-active'))
-    dropdown.classList.add('dropdown-active')
+    dropdown.classList.add('dropdown-active');
+    dropdown.querySelectorAll('.dropdown-body-value').forEach(function (el) {
+        let appended = false;
+        dropdownCashe.forEach(function (elem) {
+            if(el === elem) appended = true;
+        });
+        if(!appended) dropdownCashe.push(el)
+    });
 }
 function dropdownInsert(target) {
     let inpt = target.parentElement.previousElementSibling;
     inpt.value = target.textContent;
     let head = inpt.previousElementSibling;
     head = head.children[head.children.length - 1];
-    head.textContent = inpt.value;
+    head.value = inpt.value;
     let parent = head.parentElement;
     if (!parent.classList.contains('dropdown-choosen'))parent.classList.add('dropdown-choosen')
 }
@@ -54,7 +75,8 @@ function dropdownClose() {
     dropdowns.forEach(function (el) {
         if(el.classList.contains('dropdown-active'))
         el.classList.remove('dropdown-active')
-    })
+    });
+    dropdownCashe = [];
 }
 
 function tabClick(target) {

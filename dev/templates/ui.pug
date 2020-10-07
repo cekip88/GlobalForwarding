@@ -84,8 +84,8 @@ block content
                         li.ui-dropdown
                             span Normal
                             .dropdown
-                                button.dropdown-head(data-click-target='dropdown-head')
-                                    span.dropdown-head-value 00
+                                .dropdown-head(data-click-target='dropdown-head')
+                                    input(type='text' value='00')
                                 input(type='hidden').dropdown-input
                                 .dropdown-body
                                     button.dropdown-body-value(data-click-target='dropdown-value') 50
@@ -97,8 +97,8 @@ block content
                         li.ui-dropdown
                             span Disabled
                             .dropdown.dropdown-disabled
-                                button.dropdown-head(data-click-target='dropdown-head')
-                                    span.dropdown-head-value 55
+                                .dropdown-head(data-click-target='dropdown-head')
+                                    input(type='text' value='00' disabled=true)
                                 input(type='hidden').dropdown-input
                                 .dropdown-body
                                     button.dropdown-body-value(data-click-target='dropdown-value') 50
