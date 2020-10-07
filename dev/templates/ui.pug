@@ -94,6 +94,7 @@ block content
                                     button.dropdown-body-value(data-click-target='dropdown-value') 77.5
                                     button.dropdown-body-value(data-click-target='dropdown-value') 80
                                     button.dropdown-body-value(data-click-target='dropdown-value') 90
+                                span.dropdown-error-text Choose value of list
                         li.ui-dropdown
                             span Disabled
                             .dropdown.dropdown-disabled
@@ -105,6 +106,7 @@ block content
                                     button.dropdown-body-value(data-click-target='dropdown-value') 55
                                     button.dropdown-body-value(data-click-target='dropdown-value') 70
                                     button.dropdown-body-value(data-click-target='dropdown-value') 77.5
+                                span.dropdown-error-text Choose value of list
             .ui-iconsTabs
                 .ui-side
                     h2.ui-title.h2-title Icons
@@ -184,9 +186,9 @@ block content
                     .tab-block
                         .tab-block-item
                             .dropdown
-                                button.dropdown-head(data-click-target='dropdown-head')
+                                .dropdown-head(data-click-target='dropdown-head')
                                     include ../img/address.svg
-                                    span.dropdown-head-value Select city or zip
+                                    input(type='text' placeholder='Select city or zip')
                                 input(type='hidden').dropdown-input
                                 .dropdown-body
                                     button.dropdown-body-value(data-click-target='dropdown-value') Ukraine, Kiev
@@ -200,9 +202,9 @@ block content
                                     button.dropdown-body-value(data-click-target='dropdown-value') USA, New York
                         .tab-block-item
                             .dropdown.dropdown-active
-                                button.dropdown-head(data-click-target='dropdown-head')
+                                .dropdown-head(data-click-target='dropdown-head')
                                     include ../img/address-marker.svg
-                                    span.dropdown-head-value Select city or zip
+                                    input(type='text' placeholder='Select city or zip')
                                 input(type='hidden').dropdown-input
                                 .dropdown-body
                                     button.dropdown-body-value(data-click-target='dropdown-value') Ukraine, Odessa

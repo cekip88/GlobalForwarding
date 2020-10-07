@@ -153,6 +153,7 @@ input
       border-radius: 100%
 
 .input
+  position: relative
   &-error
     &-text
       +font(12px,$f_semi,$red)
@@ -215,6 +216,15 @@ input
 
 .dropdown
   position: relative
+  &-error
+    &-text
+      +font(12px,$f_semi,$red)
+      display: none
+      position: absolute
+    .dropdown-head
+      border-color: $red
+    .dropdown-error-text
+      display: block
   &-head
     display: flex
     align-items: center
@@ -242,13 +252,20 @@ input
   &-choosen
     color: $body-font-color
   &-body
-    border-radius: 5px
+    +w(100%)
     position: absolute
     z-index: 1
     bottom: 0
     height: 0
     overflow: auto
     transition: .35s ease
+    &-value
+      &:first-child
+        border-top-left-radius: 5px
+        border-top-right-radius: 5px
+      &:last-child
+        border-bottom-left-radius: 5px
+        border-bottom-right-radius: 5px
   &-active
     .dropdown-body
       height: 155px
